@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard WebGIS</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Link ke file CSS -->
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 font-sans">
+     <!-- Navbar -->
+    <nav class="navbar">
+    <div class="logo">Dashboard Sebaran Lokasi Program Agribisnis Tahun 2025</div>
+    <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+    <ul class="menu">
+        <li><a href="https://purwowidi.github.io/dashboard_agri/">Home</a></li>
+        <li><a href="https://purwowidi.github.io/mukapetaagri2/">See Fullscreen Map</a></li>
+        <li><a href="https://www.instagram.com/purwowidi.astanto">Contact</a></li>
+    </ul>
+    </nav>
+    <!-- Main Content -->
+    <div class="container mx-auto mt-1 grid grid-cols-1 md:grid-cols-1 gap-1">
+    <!-- Peta -->
+    <div class="bg-white p-4 shadow rounded">
+        <h2 class="text-lg font-semibold mb-4">Peta Interaktif</h2>
+        <iframe src="https://purwowidi.github.io/mukapetaagri2/" class="w-full h-80 border rounded" allowfullscreen></iframe>
+    </div>
+<!-- Tabel -->
+<div class="container mx-auto mt-6 bg-white p-4 shadow rounded">
+    <h2 class="text-lg font-semibold mb-4">Data Tabel</h2>
+    <div class="overflow-y-auto h-80 border rounded"> <!-- Kontainer dengan scroll -->
+      <table class="table-auto w-full border">
+        <thead class="bg-white-200">
+        <tr>
+            <td class="px-4 py-2 border border-gray-300">No.</td>
+            <td class="px-4 py-2 border border-gray-300">Kabupaten/Kota</td>
+            <td class="px-4 py-2 border border-gray-300">Kecamatan</td>
+            <td class="px-4 py-2 border border-gray-300">Desa/Kelurahan</td>
+            <td class="px-4 py-2 border border-gray-300">Jumlah Kelp. Tani</td>
+            <td class="px-4 py-2 border border-gray-300">Nama Kelp. Tani</td>
+            <td class="px-4 py-2 border border-gray-300">Jumlah Petani</td>
+            <td class="px-4 py-2 border border-gray-300">Sub Program</td>
+            <td class="px-4 py-2 border border-gray-300">Komoditas</td>
+            <td class="px-4 py-2 border border-gray-300">Skala</td>
+	    <td class="px-4 py-2 border border-gray-300">Produk</td>
+            </tr>
+    	<tr>
+            <td class="px-4 py-2 border border-gray-300">1</td>
+            <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+            <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+            <td class="px-4 py-2 border border-gray-300">Sering</td>
+            <td class="px-4 py-2 border border-gray-300">1</td>
+            <td class="px-4 py-2 border border-gray-300">Suak Telao Buayo</td>
+            <td class="px-4 py-2 border border-gray-300">10</td>
+            <td class="px-4 py-2 border border-gray-300">Perikanan</td>
+            <td class="px-4 py-2 border border-gray-300">Ikan Patin</td>
+            <td class="px-4 py-2 border border-gray-300">23.600 ekor</td>
+            <td class="px-4 py-2 border border-gray-300">1.564 kg</td>
+    	</tr>
+    	<tr>
+            <td class="px-4 py-2 border border-gray-300">2</td>
+            <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+            <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+            <td class="px-4 py-2 border border-gray-300">Sungai Ara</td>
+            <td class="px-4 py-2 border border-gray-300">1</td>
+            <td class="px-4 py-2 border border-gray-300">Lumbung Padi Tanjung Kepayang</td>
+            <td class="px-4 py-2 border border-gray-300">12</td>
+            <td class="px-4 py-2 border border-gray-300">Pangan</td>
+            <td class="px-4 py-2 border border-gray-300">Padi</td>
+            <td class="px-4 py-2 border border-gray-300">24.700 m2</td>
+            <td class="px-4 py-2 border border-gray-300">2.904 kg</td>
+    	</tr>
+    	<tr>
+            <td class="px-4 py-2 border border-gray-300">3</td>
+            <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+            <td class="px-4 py-2 border border-gray-300">Langgam</td>
+            <td class="px-4 py-2 border border-gray-300">Segati</td>
+            <td class="px-4 py-2 border border-gray-300">1</td>
+            <td class="px-4 py-2 border border-gray-300">Suka Ramai</td>
+            <td class="px-4 py-2 border border-gray-300">9</td>
+            <td class="px-4 py-2 border border-gray-300">Perikanan</td>
+            <td class="px-4 py-2 border border-gray-300">Ikan Kolam</td>
+            <td class="px-4 py-2 border border-gray-300">2.200 ekor</td>
+            <td class="px-4 py-2 border border-gray-300">225 kg</td>
+    	</tr>
+    	<tr>
+            <td class="px-4 py-2 border border-gray-300">4</td>
+            <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+            <td class="px-4 py-2 border border-gray-300">Langgam</td>
+            <td class="px-4 py-2 border border-gray-300">Sotol</td>
+            <td class="px-4 py-2 border border-gray-300">1</td>
+            <td class="px-4 py-2 border border-gray-300">Usaha Bersama</td>
+            <td class="px-4 py-2 border border-gray-300">12</td>
+            <td class="px-4 py-2 border border-gray-300">Tanaman Buah</td>
+            <td class="px-4 py-2 border border-gray-300">Durian</td>
+            <td class="px-4 py-2 border border-gray-300">14.000 m2</td>
+            <td class="px-4 py-2 border border-gray-300">*</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">5</td>
+           <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+           <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+           <td class="px-4 py-2 border border-gray-300">Delik</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Tuah Sekata</td>
+           <td class="px-4 py-2 border border-gray-300">11</td>
+           <td class="px-4 py-2 border border-gray-300">Tanaman Buah</td>
+           <td class="px-4 py-2 border border-gray-300">Pepaya</td>
+           <td class="px-4 py-2 border border-gray-300">2.250 m2</td>
+           <td class="px-4 py-2 border border-gray-300">45 kg</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">6</td>
+           <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+           <td class="px-4 py-2 border border-gray-300">Teluk Meranti</td>
+           <td class="px-4 py-2 border border-gray-300">Pulau Muda</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Tanjung Pulai Sejahtera</td>
+           <td class="px-4 py-2 border border-gray-300">9</td>
+           <td class="px-4 py-2 border border-gray-300">Pangan</td>
+           <td class="px-4 py-2 border border-gray-300">Padi</td>
+           <td class="px-4 py-2 border border-gray-300">32.400 m2</td>
+           <td class="px-4 py-2 border border-gray-300">16.394 kg</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">7</td>
+           <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+           <td class="px-4 py-2 border border-gray-300">Langgam</td>
+           <td class="px-4 py-2 border border-gray-300">Pangkalan Gondai</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Gondai Makmur</td>
+           <td class="px-4 py-2 border border-gray-300">11</td>
+           <td class="px-4 py-2 border border-gray-300">Perikanan</td>
+           <td class="px-4 py-2 border border-gray-300">Kolam Darat</td>
+           <td class="px-4 py-2 border border-gray-300">2.000 ekor</td>
+           <td class="px-4 py-2 border border-gray-300">215 kg</td>
+     	</tr>
+     	<tr>
+           <td class="px-4 py-2 border border-gray-300">8</td>
+           <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+           <td class="px-4 py-2 border border-gray-300">Pangkalan Kerinci</td>
+           <td class="px-4 py-2 border border-gray-300">Pangkalan Kerinci Kota</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Tani Harapan</td>
+           <td class="px-4 py-2 border border-gray-300">4</td>
+           <td class="px-4 py-2 border border-gray-300">Hortikultura</td>
+           <td class="px-4 py-2 border border-gray-300">Terong</td>
+           <td class="px-4 py-2 border border-gray-300">9.250 m2</td>
+           <td class="px-4 py-2 border border-gray-300">17.500 kg</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">9</td>
+           <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+           <td class="px-4 py-2 border border-gray-300">Teluk Meranti</td>
+           <td class="px-4 py-2 border border-gray-300">Kuala Panduk</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Harapan Jaya</td>
+           <td class="px-4 py-2 border border-gray-300">12</td>
+           <td class="px-4 py-2 border border-gray-300">Tanaman Buah</td>
+           <td class="px-4 py-2 border border-gray-300">Nenas</td>
+           <td class="px-4 py-2 border border-gray-300">15.000 m2</td>
+           <td class="px-4 py-2 border border-gray-300">14.382 buah</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">10</td>
+           <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+           <td class="px-4 py-2 border border-gray-300">Pelalawan</td>
+           <td class="px-4 py-2 border border-gray-300">Lalang Kabung</td>
+           <td class="px-4 py-2 border border-gray-300">2</td>
+           <td class="px-4 py-2 border border-gray-300">Boncah Berjaya Tempalo, Jambu Madu Makmur</td>
+           <td class="px-4 py-2 border border-gray-300">9</td>
+           <td class="px-4 py-2 border border-gray-300">Peternakan, Tanaman Buah</td>
+           <td class="px-4 py-2 border border-gray-300">Ayam KUB, Jambu Madu</td>
+           <td class="px-4 py-2 border border-gray-300">600 ekor, 1.200 m2</td>
+           <td class="px-4 py-2 border border-gray-300">*, 250 kg</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">11</td>
+           <td class="px-4 py-2 border border-gray-300">Siak</td>
+           <td class="px-4 py-2 border border-gray-300">Lubuk Dalam</td>
+           <td class="px-4 py-2 border border-gray-300">Rawang Kao</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Maju Makmur</td>
+           <td class="px-4 py-2 border border-gray-300">5</td>
+           <td class="px-4 py-2 border border-gray-300">Tanaman Buah</td>
+           <td class="px-4 py-2 border border-gray-300">Pisang</td>
+           <td class="px-4 py-2 border border-gray-300">7.500 m2</td>
+           <td class="px-4 py-2 border border-gray-300">*</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">12</td>
+           <td class="px-4 py-2 border border-gray-300">Siak</td>
+           <td class="px-4 py-2 border border-gray-300">Lubuk Dalam</td>
+           <td class="px-4 py-2 border border-gray-300">Rawang Kao Barat</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Berkah Bersama 1</td>
+           <td class="px-4 py-2 border border-gray-300">4</td>
+           <td class="px-4 py-2 border border-gray-300">Peternakan</td>
+           <td class="px-4 py-2 border border-gray-300">Ayam KUB</td>
+           <td class="px-4 py-2 border border-gray-300">600 ekor</td>
+           <td class="px-4 py-2 border border-gray-300">*</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">13</td>
+           <td class="px-4 py-2 border border-gray-300">Siak</td>
+           <td class="px-4 py-2 border border-gray-300">Sungai Mandau</td>
+           <td class="px-4 py-2 border border-gray-300">Sungai Selodang</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Maju Bersama</td>
+           <td class="px-4 py-2 border border-gray-300">14</td>
+           <td class="px-4 py-2 border border-gray-300">Tanaman Buah</td>
+           <td class="px-4 py-2 border border-gray-300">Durian</td>
+           <td class="px-4 py-2 border border-gray-300">42.500 m2</td>
+           <td class="px-4 py-2 border border-gray-300">*</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">14</td>
+           <td class="px-4 py-2 border border-gray-300">Siak</td>
+           <td class="px-4 py-2 border border-gray-300">Siak</td>
+           <td class="px-4 py-2 border border-gray-300">Tumang</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Berkah Tumang</td>
+           <td class="px-4 py-2 border border-gray-300">6</td>
+           <td class="px-4 py-2 border border-gray-300">Hortikultura</td>
+           <td class="px-4 py-2 border border-gray-300">Semangka</td>
+           <td class="px-4 py-2 border border-gray-300">9.000 m2</td>
+           <td class="px-4 py-2 border border-gray-300">*</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">15</td>
+           <td class="px-4 py-2 border border-gray-300">Siak</td>
+           <td class="px-4 py-2 border border-gray-300">Koto Gasib</td>
+           <td class="px-4 py-2 border border-gray-300">Sri Gemilang</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Tunas Mekar</td>
+           <td class="px-4 py-2 border border-gray-300">9</td>
+           <td class="px-4 py-2 border border-gray-300">Tanaman Buah</td>
+           <td class="px-4 py-2 border border-gray-300">Durian</td>
+           <td class="px-4 py-2 border border-gray-300">5.000 m2</td>
+           <td class="px-4 py-2 border border-gray-300">*</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">16</td>
+           <td class="px-4 py-2 border border-gray-300">Siak</td>
+           <td class="px-4 py-2 border border-gray-300">Kerinci Kanan</td>
+           <td class="px-4 py-2 border border-gray-300">Simpang Perak Jaya</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Kampung Durian Jaya</td>
+           <td class="px-4 py-2 border border-gray-300">13</td>
+           <td class="px-4 py-2 border border-gray-300">Tanaman Buah</td>
+           <td class="px-4 py-2 border border-gray-300">Durian</td>
+           <td class="px-4 py-2 border border-gray-300">8.300 m2</td>
+           <td class="px-4 py-2 border border-gray-300">*</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">17</td>
+           <td class="px-4 py-2 border border-gray-300">Siak</td>
+           <td class="px-4 py-2 border border-gray-300">Sungai Mandau</td>
+           <td class="px-4 py-2 border border-gray-300">Teluk Lancang</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Usaha Bersama</td>
+           <td class="px-4 py-2 border border-gray-300">9</td>
+           <td class="px-4 py-2 border border-gray-300">Tanaman Buah</td>
+           <td class="px-4 py-2 border border-gray-300">Pisang</td>
+           <td class="px-4 py-2 border border-gray-300">55.000 m2</td>
+           <td class="px-4 py-2 border border-gray-300">*</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">18</td>
+           <td class="px-4 py-2 border border-gray-300">Siak</td>
+           <td class="px-4 py-2 border border-gray-300">Sungai Mandau</td>
+           <td class="px-4 py-2 border border-gray-300">Olak</td>
+           <td class="px-4 py-2 border border-gray-300">2</td>
+           <td class="px-4 py-2 border border-gray-300">Semangat Karya Tani, Kolam Tujuh</td>
+           <td class="px-4 py-2 border border-gray-300">32</td>
+           <td class="px-4 py-2 border border-gray-300">Peternakan, Tanaman Buah</td>
+           <td class="px-4 py-2 border border-gray-300">Sapi, Pisang</td>
+           <td class="px-4 py-2 border border-gray-300">15 ekor, 10.000 m2</td>
+           <td class="px-4 py-2 border border-gray-300">15 ekor, *</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">19</td>
+           <td class="px-4 py-2 border border-gray-300">Siak</td>
+           <td class="px-4 py-2 border border-gray-300">Lubuk Dalam</td>
+           <td class="px-4 py-2 border border-gray-300">Lubuk Dalam</td>
+           <td class="px-4 py-2 border border-gray-300">3</td>
+           <td class="px-4 py-2 border border-gray-300">Seruja 1, Seruja 2, Awal Mandiri</td>
+           <td class="px-4 py-2 border border-gray-300">17</td>
+           <td class="px-4 py-2 border border-gray-300">Peternakan, Peternakan, Tanaman Buah</td>
+           <td class="px-4 py-2 border border-gray-300">Ayam KUB, Ayam KUB, Pepaya</td>
+           <td class="px-4 py-2 border border-gray-300">700 ekor, 1.300 ekor, 7.7737,5 m2</td>
+           <td class="px-4 py-2 border border-gray-300">*, *, 891 kg</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">20</td>
+           <td class="px-4 py-2 border border-gray-300">Siak</td>
+           <td class="px-4 py-2 border border-gray-300">Sungai Apit</td>
+           <td class="px-4 py-2 border border-gray-300">Penyengat</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Bina Tani</td>
+           <td class="px-4 py-2 border border-gray-300">14</td>
+           <td class="px-4 py-2 border border-gray-300">Tanaman Buah</td>
+           <td class="px-4 py-2 border border-gray-300">Nenas</td>
+           <td class="px-4 py-2 border border-gray-300">120.000 m2</td>
+           <td class="px-4 py-2 border border-gray-300">213.400 buah</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">21</td>
+           <td class="px-4 py-2 border border-gray-300">Siak</td>
+           <td class="px-4 py-2 border border-gray-300">Dayun</td>
+           <td class="px-4 py-2 border border-gray-300">Dayun</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Cemerlang</td>
+           <td class="px-4 py-2 border border-gray-300">12</td>
+           <td class="px-4 py-2 border border-gray-300">Tanaman Buah</td>
+           <td class="px-4 py-2 border border-gray-300">Semangka</td>
+           <td class="px-4 py-2 border border-gray-300">10.000 m2</td>
+           <td class="px-4 py-2 border border-gray-300">20.000 kg</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">22</td>
+           <td class="px-4 py-2 border border-gray-300">Siak</td>
+           <td class="px-4 py-2 border border-gray-300">Lubuk Dalam</td>
+           <td class="px-4 py-2 border border-gray-300">Empang Baru</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Mina Tani</td>
+           <td class="px-4 py-2 border border-gray-300">7</td>
+           <td class="px-4 py-2 border border-gray-300">Hortikultura</td>
+           <td class="px-4 py-2 border border-gray-300">Sayuran</td>
+           <td class="px-4 py-2 border border-gray-300">1.200 m2</td>
+           <td class="px-4 py-2 border border-gray-300">462 kg</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">23</td>
+           <td class="px-4 py-2 border border-gray-300">Siak</td>
+           <td class="px-4 py-2 border border-gray-300">Koto Gasib</td>
+           <td class="px-4 py-2 border border-gray-300">Empang Pandan</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Sumber Makmur</td>
+           <td class="px-4 py-2 border border-gray-300">10</td>
+           <td class="px-4 py-2 border border-gray-300">Peternakan</td>
+           <td class="px-4 py-2 border border-gray-300">Sapi &amp; Kompos</td>
+           <td class="px-4 py-2 border border-gray-300">10 ekor</td>
+           <td class="px-4 py-2 border border-gray-300">38.400 kg</td>
+    	</tr>
+   	<tr>
+           <td class="px-4 py-2 border border-gray-300">24</td>
+           <td class="px-4 py-2 border border-gray-300">Kampar</td>
+           <td class="px-4 py-2 border border-gray-300">Gunung Sahilan</td>
+           <td class="px-4 py-2 border border-gray-300">Subarak</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Durian Berkah</td>
+           <td class="px-4 py-2 border border-gray-300">21</td>
+           <td class="px-4 py-2 border border-gray-300">Tanaman Buah</td>
+           <td class="px-4 py-2 border border-gray-300">Durian</td>
+           <td class="px-4 py-2 border border-gray-300">18.500 m2</td>
+           <td class="px-4 py-2 border border-gray-300">*</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">25</td>
+           <td class="px-4 py-2 border border-gray-300">Kampar</td>
+           <td class="px-4 py-2 border border-gray-300">Gunung Sahilan</td>
+           <td class="px-4 py-2 border border-gray-300">Makmur Sejahtera</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Usaha Tani Jaya</td>
+           <td class="px-4 py-2 border border-gray-300">5</td>
+           <td class="px-4 py-2 border border-gray-300">Hortikultura</td>
+           <td class="px-4 py-2 border border-gray-300">Cabe, Semangka</td>
+           <td class="px-4 py-2 border border-gray-300">5.000 m2, 22.000 m2</td>
+           <td class="px-4 py-2 border border-gray-300">1.300 kg, 52.000 kg</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">26</td>
+           <td class="px-4 py-2 border border-gray-300">Kampar</td>
+           <td class="px-4 py-2 border border-gray-300">Kampar Kiri</td>
+           <td class="px-4 py-2 border border-gray-300">Kuntu Darussalam</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Sungai Soghouk</td>
+           <td class="px-4 py-2 border border-gray-300">8</td>
+           <td class="px-4 py-2 border border-gray-300">Perikanan</td>
+           <td class="px-4 py-2 border border-gray-300">Ikan Nila</td>
+           <td class="px-4 py-2 border border-gray-300">12.000 ekor</td>
+           <td class="px-4 py-2 border border-gray-300">*</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">27</td>
+           <td class="px-4 py-2 border border-gray-300">Kampar</td>
+           <td class="px-4 py-2 border border-gray-300">Gunung Sahilan</td>
+           <td class="px-4 py-2 border border-gray-300">Gunung Sari</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Rizki Mandiri</td>
+           <td class="px-4 py-2 border border-gray-300">17</td>
+           <td class="px-4 py-2 border border-gray-300">Peternakan</td>
+           <td class="px-4 py-2 border border-gray-300">Sapi</td>
+           <td class="px-4 py-2 border border-gray-300">35 ekor</td>
+           <td class="px-4 py-2 border border-gray-300">35 ekor</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">28</td>
+           <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+           <td class="px-4 py-2 border border-gray-300">Cerenti</td>
+           <td class="px-4 py-2 border border-gray-300">Sikakak</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Harapan Baru</td>
+           <td class="px-4 py-2 border border-gray-300">10</td>
+           <td class="px-4 py-2 border border-gray-300">Hortikultura</td>
+           <td class="px-4 py-2 border border-gray-300">Cabe</td>
+           <td class="px-4 py-2 border border-gray-300">2.500 m2</td>
+           <td class="px-4 py-2 border border-gray-300">*</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">29</td>
+           <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+           <td class="px-4 py-2 border border-gray-300">Benai</td>
+           <td class="px-4 py-2 border border-gray-300">Talontom</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Tuah Sekato</td>
+           <td class="px-4 py-2 border border-gray-300">10</td>
+           <td class="px-4 py-2 border border-gray-300">Peternakan</td>
+           <td class="px-4 py-2 border border-gray-300">Sapi &amp; Kompos</td>
+           <td class="px-4 py-2 border border-gray-300">18 ekor</td>
+           <td class="px-4 py-2 border border-gray-300">15.600 kg</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">30</td>
+           <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+           <td class="px-4 py-2 border border-gray-300">Logas Tanah Darat</td>
+           <td class="px-4 py-2 border border-gray-300">Situgal</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Andalan Jaya</td>
+           <td class="px-4 py-2 border border-gray-300">11</td>
+           <td class="px-4 py-2 border border-gray-300">Hortikultura</td>
+           <td class="px-4 py-2 border border-gray-300">Cabe</td>
+           <td class="px-4 py-2 border border-gray-300">*</td>
+           <td class="px-4 py-2 border border-gray-300">*</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">31</td>
+           <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+           <td class="px-4 py-2 border border-gray-300">Benai</td>
+           <td class="px-4 py-2 border border-gray-300">Koto Benai</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Ingin Maju</td>
+           <td class="px-4 py-2 border border-gray-300">12</td>
+           <td class="px-4 py-2 border border-gray-300">Peternakan</td>
+           <td class="px-4 py-2 border border-gray-300">Sapi &amp; Kompos</td>
+           <td class="px-4 py-2 border border-gray-300">15 ekor</td>
+           <td class="px-4 py-2 border border-gray-300">11.460 kg</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">32</td>
+           <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+           <td class="px-4 py-2 border border-gray-300">Logas Tanah Darat</td>
+           <td class="px-4 py-2 border border-gray-300">Perhentian Luas</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Harapan Maju</td>
+           <td class="px-4 py-2 border border-gray-300">10</td>
+           <td class="px-4 py-2 border border-gray-300">Perikanan</td>
+           <td class="px-4 py-2 border border-gray-300">Ikan Nila</td>
+           <td class="px-4 py-2 border border-gray-300">50.000 ekor</td>
+           <td class="px-4 py-2 border border-gray-300">2.207 kg</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">33</td>
+           <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+           <td class="px-4 py-2 border border-gray-300">Inuman</td>
+           <td class="px-4 py-2 border border-gray-300">Koto Inuman</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Sei Ibul Jaya</td>
+           <td class="px-4 py-2 border border-gray-300">8</td>
+           <td class="px-4 py-2 border border-gray-300">Peternakan</td>
+           <td class="px-4 py-2 border border-gray-300">Sapi</td>
+           <td class="px-4 py-2 border border-gray-300">*</td>
+           <td class="px-4 py-2 border border-gray-300">*</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">34</td>
+           <td class="px-4 py-2 border border-gray-300">Kuantan Singingi</td>
+           <td class="px-4 py-2 border border-gray-300">Benai</td>
+           <td class="px-4 py-2 border border-gray-300">Banjar Benai</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Sejahtera Andalan</td>
+           <td class="px-4 py-2 border border-gray-300">8</td>
+           <td class="px-4 py-2 border border-gray-300">Peternakan</td>
+           <td class="px-4 py-2 border border-gray-300">Sapi &amp; Kompos</td>
+           <td class="px-4 py-2 border border-gray-300">14 ekor</td>
+           <td class="px-4 py-2 border border-gray-300">16.600 kg</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">35</td>
+           <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+           <td class="px-4 py-2 border border-gray-300">Tasik Putri Puyu</td>
+           <td class="px-4 py-2 border border-gray-300">Tanjung Padang</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Tandan Sari</td>
+           <td class="px-4 py-2 border border-gray-300">30</td>
+           <td class="px-4 py-2 border border-gray-300">Tanaman Buah</td>
+           <td class="px-4 py-2 border border-gray-300">Nenas</td>
+           <td class="px-4 py-2 border border-gray-300">15.000 m2</td>
+           <td class="px-4 py-2 border border-gray-300">*</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">36</td>
+           <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+           <td class="px-4 py-2 border border-gray-300">Merbau</td>
+           <td class="px-4 py-2 border border-gray-300">Lukit</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Bina Makmur</td>
+           <td class="px-4 py-2 border border-gray-300">5</td>
+           <td class="px-4 py-2 border border-gray-300">Hortikultura</td>
+           <td class="px-4 py-2 border border-gray-300">Semangka, Terong</td>
+           <td class="px-4 py-2 border border-gray-300">10.000 m2</td>
+           <td class="px-4 py-2 border border-gray-300">142 kg</td>
+    	</tr>
+    	<tr>
+           <td class="px-4 py-2 border border-gray-300">37</td>
+           <td class="px-4 py-2 border border-gray-300">Kepulauan Meranti</td>
+           <td class="px-4 py-2 border border-gray-300">Merbau</td>
+           <td class="px-4 py-2 border border-gray-300">Bagan Melibur</td>
+           <td class="px-4 py-2 border border-gray-300">1</td>
+           <td class="px-4 py-2 border border-gray-300">Karya Tani</td>
+           <td class="px-4 py-2 border border-gray-300">4</td>
+           <td class="px-4 py-2 border border-gray-300">Hortikultura</td>
+           <td class="px-4 py-2 border border-gray-300">Cabe Rawit</td>
+           <td class="px-4 py-2 border border-gray-300">2.500 m2</td>
+           <td class="px-4 py-2 border border-gray-300">1.012 kg</td>    
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
